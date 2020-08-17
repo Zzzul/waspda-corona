@@ -71,6 +71,9 @@
                                 <li class="nav-item">
                                     <a href="https://bnpb-inacovid19.hub.arcgis.com/" class="nav-link">BNPB-inacovid19</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="https://dekontaminasi.com/api/id/covid19/hospitals" class="nav-link">Dekontaminasi.com</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
