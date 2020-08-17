@@ -1,6 +1,6 @@
 # WASPADA CORONA
 
-<img src="https://raw.githubusercontent.com/Zzzul/coba-gitignore/master/screencapture-localhost-waspada_corona-1597647274042.png?token=AO44MVWZ7MV4MYNI6ZBLHES7HI6GS" width="90%"></img>
+<img src="https://user-images.githubusercontent.com/62506582/90374507-cce0e700-e09d-11ea-9874-6fd68a293959.png" width="90%" alt="Screenshoot WASPADA CORONA"></img>
 
 Apa itu WASPADA CORONA
 Waspada Corona adalah sebuah web yang menampilkan informasi kasus Corona Virus di Indonesia dan seluruh dunia.
