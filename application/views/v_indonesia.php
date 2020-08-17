@@ -152,6 +152,58 @@
                 </div>
             </div>
             <!-- end of row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <i class="fas fa-hospital mr-2"></i>
+                            <h4>Daftar Rumah Sakit Rujukan Coronavirus di Indonesia</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover" id="table-rs">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Rumah Sakit</th>
+                                            <th>Provinsi</th>
+                                            <th>Kota</th>
+                                            <th>No Telepon</th>
+                                            <th>Alamat</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $no = 1; ?>
+                                        <?php foreach ($rumah_sakit as $key => $value) { ?>
+                                            <tr>
+                                                <td><?= $no++ ?></td>
+                                                <td><?= $value['name'] ?></td>
+                                                <td><?= $value['province'] ?></td>
+                                                <td><?= $value['region'] ?></td>
+                                                <td><?= $value['phone'] ?></td>
+                                                <td><?= $value['address'] ?></td>
+                                            </tr>
+                                        <?php  }  ?>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Rumah Sakit</th>
+                                            <th>Provinsi</th>
+                                            <th>Kota</th>
+                                            <th>No Telepon</th>
+                                            <th>Alamat</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- end of card-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- end of row -->
         </div>
         <!-- end of section-body -->
     </section>
