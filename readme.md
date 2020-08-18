@@ -15,13 +15,13 @@ berbasis <strong>Codeigniter 3</strong> dan template STISLA
 
 
 #### Web API yang dipakai
-<a href="https://api.kawalcorona.com/">Global</a>
-<a href="https://api.kawalcorona.com/positif">Global total positif</a>
-<a href="https://api.kawalcorona.com/sembuh">Global total sembuh</a>
-<a href="https://api.kawalcorona.com/meninggal">Global total meninggal</a>
-<a href="https://data.covid19.go.id/public/api/update.json">Kumlatif & harian lokal</a>
-<a href="https://data.covid19.go.id/public/api/prov.json">Provinsi</a>
-<a href="https://dekontaminasi.com/api/id/covid19/hospitals">Rumah sakit rujukan</a>
+<a href="https://api.kawalcorona.com/">Global</a><br>
+<a href="https://api.kawalcorona.com/positif">Global total positif</a><br>
+<a href="https://api.kawalcorona.com/sembuh">Global total sembuh</a><br>
+<a href="https://api.kawalcorona.com/meninggal">Global total meninggal</a><br>
+<a href="https://data.covid19.go.id/public/api/update.json">Kumlatif & harian lokal</a><br>
+<a href="https://data.covid19.go.id/public/api/prov.json">Provinsi</a><br>
+<a href="https://dekontaminasi.com/api/id/covid19/hospitals">Rumah sakit rujukan</a><br>
 
 
 #### Kontribusi
