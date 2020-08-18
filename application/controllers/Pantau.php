@@ -7,16 +7,19 @@ class Pantau extends CI_Controller
     public function index()
     {
 
-        $indo = json_decode(file_get_contents('https://api.kawalcorona.com/indonesia/'), true);
-        $provinsi = json_decode(file_get_contents('https://api.kawalcorona.com/indonesia/provinsi'), true);
-        $pnasional = json_decode(file_get_contents('https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json'), true);
+        // Data kumulatif dan harian
+        $indo = json_decode(file_get_contents('https://data.covid19.go.id/public/api/update.json'), true);
+
+        // Provinsi 
+        $provinsi = json_decode(file_get_contents('https://data.covid19.go.id/public/api/prov.json'), true);
+
+        // rumah sakit rujukan
         $rumah_sakit = json_decode(file_get_contents('https://dekontaminasi.com/api/id/covid19/hospitals'), true);
 
 
         $data = array(
-            'provinsi'    => $provinsi,
             'indo'        => $indo,
-            'pnasional'   => $pnasional,
+            'provinsi'    => $provinsi,
             'rumah_sakit' => $rumah_sakit,
         );
 

@@ -1,12 +1,12 @@
             <footer class="main-footer">
                 <div class="footer-left">
                     Copyright &copy; 2020 <div class="bullet"></div>Template (STISLA) By
-                    <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+                    <a href="https://nauval.in/" target="_blank">Muhamad Nauval Azhar</a>
                 </div>
                 <div class="footer-right">
                     <div class="bullet"></div>
                     Created By
-                    <a href="#">Mohammad Zulfahmi</a>
+                    <a href="https://github.com/Zzzul/" target="_blank">Mohammad Zulfahmi</a>
                 </div>
             </footer>
             </div>

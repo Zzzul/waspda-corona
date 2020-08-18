@@ -3,13 +3,7 @@
     <section class="section">
         <div class="section-header">
             <h1>Informasi Kasus Coronavirus di Indonesia</h1>
-            <!-- <div class="section-header-breadcrumb">
-                            <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                            <div class="breadcrumb-item"><a href="#">Layout</a></div>
-                            <div class="breadcrumb-item">Top Navigation</div>
-                        </div> -->
         </div>
-
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -22,7 +16,7 @@
                                 <h4>Total Positif</h4>
                             </div>
                             <div class="card-body">
-                                <?php echo $indo['0']['positif'] ?>
+                                <?php echo number_format($indo['update']['total']['jumlah_positif']); ?>
                             </div>
                         </div>
                     </div>
@@ -40,7 +34,7 @@
                                 <h4>Total Sembuh</h4>
                             </div>
                             <div class="card-body">
-                                <?php echo $indo['0']['sembuh'] ?>
+                                <?php echo number_format($indo['update']['total']['jumlah_sembuh']); ?>
                             </div>
                         </div>
                     </div>
@@ -57,10 +51,47 @@
                                 <h4>Total Meninggal</h4>
                             </div>
                             <div class="card-body">
-                                <?php echo $indo['0']['meninggal'] ?>
+                                <?php echo number_format($indo['update']['total']['jumlah_meninggal']); ?>
                             </div>
                         </div>
                     </div>
+                </div>
+                <!-- end of col -->
+
+                <div class="col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <h4>Informasi Kasus Coronavirus di Indonesia Hari Ini</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h6>Tanggal</h6>
+                                    <?php echo date('d-m-Y', strtotime($indo['update']['penambahan']['tanggal'])); ?>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>Positif</h6>
+                                    <?php echo number_format($indo['update']['penambahan']['jumlah_positif']); ?>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>Sembuh</h6>
+                                    <?php echo number_format($indo['update']['penambahan']['jumlah_sembuh']); ?>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>Meninggal</h6>
+                                    <?php echo number_format($indo['update']['penambahan']['jumlah_meninggal']); ?>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>Terakhir Diupdate</h6>
+                                    <?php echo date('d-m-Y H:i:s', strtotime($indo['update']['penambahan']['created'])); ?>
+                                </div>
+                            </div>
+                            <!-- end of row -->
+                        </div>
+                        <!-- end of card-body -->
+                    </div>
+                    <!-- end of card -->
                 </div>
                 <!-- end of col -->
             </div>
@@ -72,9 +103,6 @@
                         <div class="card-header">
                             <i class="fas fa-globe-asia mr-2"></i>
                             <h4>Pemetaan Kasus Coronavirus di Indonesia</h4>
-                            <!-- <div class="card-header-action">
-                                <a data-collapse="#mycard-collapse" class="btn btn-icon btn-primary" href="#"><i class="fas fa-plus"></i></a>
-                            </div> -->
                         </div>
                         <div class="card-body">
                             <div id="mapid" class="rounded" style="height: 500px;"></div>
@@ -90,12 +118,12 @@
 
                                 }).addTo(mymap);
 
-                                <?php foreach ($pnasional['features'] as $key => $value) { ?>
-                                    L.marker([<?= $value['geometry']['y']  ?>, <?= $value['geometry']['x'] ?>]).addTo(mymap)
-                                        .bindPopup("<table> <tr> <td> <b>Provinsi</b> </td> <td>:</td> <td> <b><?= $value['attributes']['Provinsi'] ?></b> </td> </tr>" +
-                                            "<tr> <td>Positif</td> <td>:</td> <td><?= number_format($value['attributes']['Kasus_Posi'])  ?></td> </tr>" +
-                                            "<tr> <td>Sembuh</td> <td>:</td> <td><?= number_format($value['attributes']['Kasus_Semb']) ?></td> </tr>" +
-                                            "<tr> <td>Meninggal</td> <td>:</td> <td><?= number_format($value['attributes']['Kasus_Meni']) ?></td> </tr> </table>"
+                                <?php foreach ($provinsi['list_data'] as $key => $value) { ?>
+                                    L.marker([<?= $value['lokasi']['lat']  ?>, <?= $value['lokasi']['lon'] ?>]).addTo(mymap)
+                                        .bindPopup("<table> <tr> <td> <b>Provinsi</b> </td> <td>:</td> <td> <b><?= ucwords($value['key']) ?></b> </td> </tr>" +
+                                            "<tr> <td>Positif</td> <td>:</td> <td><?= number_format($value['jumlah_kasus'])  ?></td> </tr>" +
+                                            "<tr> <td>Sembuh</td> <td>:</td> <td><?= number_format($value['jumlah_sembuh']) ?></td> </tr>" +
+                                            "<tr> <td>Meninggal</td> <td>:</td> <td><?= number_format($value['jumlah_meninggal']) ?></td> </tr> <tr> <td>Dirawat</td> <td>:</td> <td><?= number_format($value['jumlah_dirawat']) ?></td>  </tr> </table>"
                                         );
                                 <?php } ?>
                             </script>
@@ -121,17 +149,19 @@
                                             <th>Positif</th>
                                             <th>Sembuh</th>
                                             <th>Meninggal</th>
+                                            <th>Jumlah Dirawat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php $no = 1; ?>
-                                        <?php foreach ($provinsi as $key => $value) { ?>
+                                        <?php foreach ($provinsi['list_data'] as $key => $value) { ?>
                                             <tr>
                                                 <td><?= $no++ ?></td>
-                                                <td><?= $value['attributes']['Provinsi'] ?></td>
-                                                <td><?= number_format($value['attributes']['Kasus_Posi']) ?></td>
-                                                <td><?= number_format($value['attributes']['Kasus_Semb']) ?></td>
-                                                <td><?= number_format($value['attributes']['Kasus_Meni']) ?></td>
+                                                <td><?= ucwords($value['key']) ?></td>
+                                                <td><?= number_format($value['jumlah_kasus']) ?></td>
+                                                <td><?= number_format($value['jumlah_sembuh']) ?></td>
+                                                <td><?= number_format($value['jumlah_meninggal']) ?></td>
+                                                <td><?= number_format($value['jumlah_dirawat']) ?></td>
                                             </tr>
                                         <?php  }  ?>
                                     </tbody>
@@ -142,6 +172,7 @@
                                             <th>Positif</th>
                                             <th>Sembuh</th>
                                             <th>Meninggal</th>
+                                            <th>Jumlah Dirawat</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -169,7 +200,7 @@
                                             <th>Nama Rumah Sakit</th>
                                             <th>Provinsi</th>
                                             <th>Kota</th>
-                                            <th>No Telepon</th>
+                                            <th>Telepon</th>
                                             <th>Alamat</th>
                                         </tr>
                                     </thead>
@@ -192,19 +223,23 @@
                                             <th>Nama Rumah Sakit</th>
                                             <th>Provinsi</th>
                                             <th>Kota</th>
-                                            <th>No Telepon</th>
+                                            <th>Telepon</th>
                                             <th>Alamat</th>
                                         </tr>
                                     </tfoot>
                                 </table>
                             </div>
+                            <!-- end of table-responive -->
                         </div>
                         <!-- end of card-body -->
                     </div>
+                    <!-- end of card -->
                 </div>
+                <!-- end of col -->
             </div>
             <!-- end of row -->
         </div>
         <!-- end of section-body -->
     </section>
 </div>
+<!-- end of main-content -->

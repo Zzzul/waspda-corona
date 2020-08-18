@@ -81,7 +81,7 @@
 
                                 }).addTo(mymap);
 
-                                <?php foreach ($lokasi as $key => $value) { ?>
+                                <?php foreach ($global as $key => $value) { ?>
                                     L.marker([<?= $value['attributes']['Lat']  ?>, <?= $value['attributes']['Long_'] ?>]).addTo(mymap)
                                         .bindPopup("<table> <tr> <td> <b>Negara</b> </td> <td>:</td> <td> <b><?= $value['attributes']['Country_Region'] ?></b> </td> </tr>" +
                                             "<tr> <td>Positif</td> <td>:</td> <td><?= number_format($value['attributes']['Confirmed'])  ?></td> </tr>" +

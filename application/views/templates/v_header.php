@@ -66,13 +66,13 @@
                             <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>API oleh</span></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="https://kawalcorona.com" class="nav-link">KawalCorona</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://bnpb-inacovid19.hub.arcgis.com/" class="nav-link">BNPB-inacovid19</a>
+                                    <a href="https://api.kawalcorona.com/" class="nav-link">Kawalcorona.com</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="https://dekontaminasi.com/api/id/covid19/hospitals" class="nav-link">Dekontaminasi.com</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://data.covid19.go.id/public/api/update.json" class="nav-link">Covid19.go.id</a>
                                 </li>
                             </ul>
                         </li>
