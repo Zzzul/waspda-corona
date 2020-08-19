@@ -4,7 +4,14 @@
         <div class="section-header">
             <h1>Informasi Kasus Coronavirus di Seluruh Dunia</h1>
         </div>
-
+        <?php
+        // foreach ($global as $key => $value) {
+        //     echo $value['attributes']['Country_Region'];
+        //     echo " | ";
+        //     echo $value['attributes']['Lat'] . " " . $value['attributes']['Long_'];
+        // }
+        // die; 
+        ?>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -72,22 +79,42 @@
                             <script>
                                 var mymap = L.map('mapid').setView([27.3846827, 70.4278625], 3);
 
+
                                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-
-                                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                                        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                                    maxZoom: 18,
                                     id: 'mapbox/dark-v10',
-
+                                    tileSize: 512,
+                                    zoomOffset: -1
                                 }).addTo(mymap);
 
                                 <?php foreach ($global as $key => $value) { ?>
-                                    L.marker([<?= $value['attributes']['Lat']  ?>, <?= $value['attributes']['Long_'] ?>]).addTo(mymap)
-                                        .bindPopup("<table> <tr> <td> <b>Negara</b> </td> <td>:</td> <td> <b><?= $value['attributes']['Country_Region'] ?></b> </td> </tr>" +
-                                            "<tr> <td>Positif</td> <td>:</td> <td><?= number_format($value['attributes']['Confirmed'])  ?></td> </tr>" +
-                                            "<tr> <td>Sembuh</td> <td>:</td> <td><?= number_format($value['attributes']['Recovered']) ?></td> </tr>" +
-                                            "<tr> <td>Meninggal</td> <td>:</td> <td><?= number_format($value['attributes']['Deaths']) ?></td> </tr> </table>"
-                                        );
+                                    L.circle([<?= $value['attributes']['Lat']  ?>, <?= $value['attributes']['Long_'] ?>], 99999, {
+                                        color: 'red',
+                                        fillColor: '#f03',
+                                        fillOpacity: 0.5
+                                    }).addTo(mymap).bindPopup("<b><?= $value['attributes']['Country_Region'] ?></b> <table>" +
+                                        "<tr>" +
+                                        " <td>Positif</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['attributes']['Confirmed'])  ?></td>" +
+                                        "</tr>" +
+                                        "<tr>" +
+                                        " <td>Sembuh</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['attributes']['Recovered']) ?></td> " +
+                                        "</tr>" +
+                                        "<tr>" +
+                                        " <td>Meninggal</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['attributes']['Deaths']) ?></td>" +
+                                        "</tr>" +
+                                        " <tr>" +
+                                        " <td>Dirawat</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['attributes']['Active']) ?></td>" +
+                                        "</tr>" +
+                                        "</table>"
+                                    );
                                 <?php } ?>
                             </script>
                         </div>

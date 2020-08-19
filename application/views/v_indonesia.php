@@ -6,7 +6,16 @@
         </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <?php
+                // foreach ($indo['update']['harian'] as $key => $value) {
+                //     echo date('d m Y', strtotime($value['key_as_string']));
+                //     echo " | ";
+                //     echo $value['jumlah_meninggal']['value'];
+                //     echo "<br>";
+                // };
+                // die;
+                ?>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-warning">
                             <img src="assets/img/emoji/sad-u6e.png" class="rounded-circle mb-2" alt="Emoji Sembuh" style="width: 65%;">
@@ -23,7 +32,7 @@
                 </div>
                 <!-- end of col -->
 
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-success">
                             <img src="assets/img/emoji/happy-ipM.png" class="rounded-circle mb-2" alt="Emoji Sembuh" style="width: 65%;">
@@ -41,7 +50,7 @@
                 </div>
                 <!-- end of col -->
 
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
                             <img src="assets/img/emoji/emoji-LWx.png" class="rounded-circle mb-2" alt="Emoji Sembuh" style="width: 65%;">
@@ -58,6 +67,23 @@
                 </div>
                 <!-- end of col -->
 
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-info">
+                            <img src="assets/img/emoji/hospital.webp" class="rounded-circle mb-2" alt="Emoji Sembuh" style="width: 65%;">
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Dirawat</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php echo number_format($indo['update']['total']['jumlah_dirawat']); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of col -->
+
                 <div class="col-lg-12 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-header">
@@ -67,24 +93,38 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <h6>Tanggal</h6>
-                                    <?php echo date('d-m-Y', strtotime($indo['update']['penambahan']['tanggal'])); ?>
+                                    <h6 class="mb-0 pb-0">Tanggal</h6>
+                                    <p class="mb-1">
+                                        <?php echo date('d-m-Y', strtotime($indo['update']['penambahan']['tanggal'])); ?>
+                                    </p>
                                 </div>
                                 <div class="col-md-2">
-                                    <h6>Positif</h6>
-                                    <?php echo number_format($indo['update']['penambahan']['jumlah_positif']); ?>
+                                    <h6 class="mb-0 pb-0">Positif</h6>
+                                    <p class="mb-1">
+                                        <?php echo number_format($indo['update']['penambahan']['jumlah_positif']); ?>
+                                    </p>
                                 </div>
                                 <div class="col-md-2">
-                                    <h6>Sembuh</h6>
-                                    <?php echo number_format($indo['update']['penambahan']['jumlah_sembuh']); ?>
+                                    <h6 class="mb-0 pb-0">Sembuh</h6>
+                                    <p class="mb-1">
+                                        <?php echo number_format($indo['update']['penambahan']['jumlah_sembuh']); ?>
+                                    </p>
                                 </div>
                                 <div class="col-md-2">
-                                    <h6>Meninggal</h6>
-                                    <?php echo number_format($indo['update']['penambahan']['jumlah_meninggal']); ?>
+                                    <h6 class="mb-0 pb-0">Meninggal</h6>
+                                    <p class="mb-1"><?php echo number_format($indo['update']['penambahan']['jumlah_meninggal']); ?></p>
                                 </div>
                                 <div class="col-md-2">
-                                    <h6>Terakhir Diupdate</h6>
-                                    <?php echo date('d-m-Y H:i:s', strtotime($indo['update']['penambahan']['created'])); ?>
+                                    <h6 class="mb-0 pb-0">Dirawat</h6>
+                                    <p class="mb-1">
+                                        <?php echo number_format($indo['update']['penambahan']['jumlah_dirawat']); ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6 class="mb-0 pb-0">Update Terakhir</h6>
+                                    <p class="mb-1">
+                                        <?php echo date('d-m-Y H:i:s', strtotime($indo['update']['penambahan']['created'])); ?>
+                                    </p>
                                 </div>
                             </div>
                             <!-- end of row -->
@@ -94,37 +134,285 @@
                     <!-- end of card -->
                 </div>
                 <!-- end of col -->
+
+                <div class="col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            <h4>Grafik Kasus Coronavirus di Indonesia</h4>
+                            <form class="card-header-form">
+                                <select id="selectChart" class="form-control">
+                                    <option value="harian">Harian</option>
+                                    <option value="kumulatif">Kumulatif</option>
+                                </select>
+                            </form>
+                            <!-- <div class="row">
+                                <div class="col-lg-10 col-md-10">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h4>Grafik Kasus Coronavirus di Indonesia</h4>
+                                </div>
+                                <div class="col-lg-2 col-md-2">
+                                    <select id="selectChart" class="form-control float-right">
+                                        <option value="harian">Harian</option>
+                                        <option value="kumulatif">Kumulatif</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                            <!-- emd of row -->
+                        </div>
+                        <canvas id="chartHarian" height="400" class="p-3"></canvas>
+                        <canvas id="chartKumulatif" height="400" class="p-3"></canvas>
+                        <script>
+                            var ctx = document.getElementById('chartHarian').getContext('2d');
+                            var chartHarian = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: [
+                                        <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                            echo "'" . date('d-m-Y', strtotime($value['key_as_string'])) . "',";
+                                        } ?>
+                                    ],
+                                    datasets: [{
+                                            label: 'Positif',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_positif']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(255, 205, 86)',
+                                            ],
+                                            borderColor: [
+                                                'rgb(255, 205, 86)',
+                                            ],
+                                        },
+                                        {
+                                            label: 'Sembuh',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_sembuh']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(75, 192, 192)',
+                                            ],
+                                            borderColor: [
+                                                'rgb(75, 192, 192)',
+                                            ],
+                                        },
+                                        {
+                                            label: 'Meninggal',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_meninggal']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(255, 99, 132)'
+                                            ],
+                                            borderColor: [
+                                                'rgb(255, 99, 132)'
+                                            ],
+                                        },
+                                        {
+                                            label: 'Dirawat',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_dirawat']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(54, 162, 235)',
+                                            ],
+                                            borderColor: [
+                                                'rgb(54, 162, 235)',
+                                            ],
+                                        },
+                                    ]
+                                },
+                                options: {
+                                    tooltips: {
+                                        callbacks: {
+                                            label: function(t, d) {
+                                                var xLabel = d.datasets[t.datasetIndex].label;
+                                                var yLabel = t.yLabel >= 1000 ? +t.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : +t.yLabel;
+                                                return xLabel + ': ' + yLabel;
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                callback: function(value, index, values) {
+                                                    if (parseInt(value) >= 1000) {
+                                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                                                    } else {
+                                                        return value;
+                                                    }
+                                                }
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+                        </script>
+
+                        <script>
+                            var ctx = document.getElementById('chartKumulatif').getContext('2d');
+                            var chartKumulatif = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: [
+                                        <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                            echo "'" . date('d-m-Y', strtotime($value['key_as_string'])) . "',";
+                                        } ?>
+                                    ],
+                                    datasets: [{
+                                            label: 'Positif',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_positif_kum']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(255, 205, 86)',
+                                            ],
+                                            borderColor: [
+                                                'rgb(255, 205, 86)',
+                                            ],
+                                        },
+                                        {
+                                            label: 'Sembuh',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_sembuh_kum']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(75, 192, 192)',
+                                            ],
+                                            borderColor: [
+                                                'rgb(75, 192, 192)',
+                                            ],
+                                        },
+                                        {
+                                            label: 'Meninggal',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_meninggal_kum']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(255, 99, 132)'
+                                            ],
+                                            borderColor: [
+                                                'rgb(255, 99, 132)'
+                                            ],
+                                        },
+                                        {
+                                            label: 'Dirawat',
+                                            fill: false,
+                                            data: [
+                                                <?php foreach ($indo['update']['harian'] as $key => $value) {
+                                                    echo "'" . $value['jumlah_dirawat_kum']['value'] . "',";
+                                                } ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgb(54, 162, 235)',
+                                            ],
+                                            borderColor: [
+                                                'rgb(54, 162, 235)',
+                                            ],
+                                        },
+                                    ]
+                                },
+                                options: {
+                                    tooltips: {
+                                        callbacks: {
+                                            label: function(t, d) {
+                                                var xLabel = d.datasets[t.datasetIndex].label;
+                                                var yLabel = t.yLabel >= 1000 ? +t.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : +t.yLabel;
+                                                return xLabel + ': ' + yLabel;
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                callback: function(value, index, values) {
+                                                    if (parseInt(value) >= 1000) {
+                                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                                                    } else {
+                                                        return value;
+                                                    }
+                                                }
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+                <!-- end of col -->
             </div>
             <!-- end of row -->
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-primary">
+                    <div class="card">
                         <div class="card-header">
                             <i class="fas fa-globe-asia mr-2"></i>
-                            <h4>Pemetaan Kasus Coronavirus di Indonesia</h4>
+                            <h4>Peta Sebaran Kasus Coronavirus di Indonesia</h4>
                         </div>
                         <div class="card-body">
                             <div id="mapid" class="rounded" style="height: 500px;"></div>
                             <script>
-                                var mymap = L.map('mapid').setView([-2.320007, 118.197633], 5);
+                                var mymap = L.map('mapid').setView([-1.8414492, 117.3769812], 5);
+                                // var mymap = L.map('mapid').setView([-2.320007, 118.197633], 5);
 
                                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-
-                                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                                        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                                    maxZoom: 18,
                                     id: 'mapbox/dark-v10',
-
+                                    tileSize: 512,
+                                    zoomOffset: -1
                                 }).addTo(mymap);
 
                                 <?php foreach ($provinsi['list_data'] as $key => $value) { ?>
-                                    L.marker([<?= $value['lokasi']['lat']  ?>, <?= $value['lokasi']['lon'] ?>]).addTo(mymap)
-                                        .bindPopup("<table> <tr> <td> <b>Provinsi</b> </td> <td>:</td> <td> <b><?= ucwords($value['key']) ?></b> </td> </tr>" +
-                                            "<tr> <td>Positif</td> <td>:</td> <td><?= number_format($value['jumlah_kasus'])  ?></td> </tr>" +
-                                            "<tr> <td>Sembuh</td> <td>:</td> <td><?= number_format($value['jumlah_sembuh']) ?></td> </tr>" +
-                                            "<tr> <td>Meninggal</td> <td>:</td> <td><?= number_format($value['jumlah_meninggal']) ?></td> </tr> <tr> <td>Dirawat</td> <td>:</td> <td><?= number_format($value['jumlah_dirawat']) ?></td>  </tr> </table>"
-                                        );
+                                    L.circle([<?= $value['lokasi']['lat']  ?>, <?= $value['lokasi']['lon'] ?>], 55555, {
+                                        color: 'red',
+                                        fillColor: '#f03',
+                                        fillOpacity: 0.5
+                                    }).addTo(mymap).bindPopup("<b><?= $value['key'] ?></b> <table>" +
+                                        "<tr>" +
+                                        " <td>Positif</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['jumlah_kasus'])  ?></td>" +
+                                        "</tr>" +
+                                        "<tr>" +
+                                        " <td>Sembuh</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['jumlah_sembuh']) ?></td> " +
+                                        "</tr>" +
+                                        "<tr>" +
+                                        " <td>Meninggal</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['jumlah_meninggal']) ?></td>" +
+                                        "</tr>" +
+                                        " <tr>" +
+                                        " <td>Dirawat</td>" +
+                                        " <td>:</td>" +
+                                        " <td><?= number_format($value['jumlah_dirawat']) ?></td>" +
+                                        "</tr>" +
+                                        "</table>"
+                                    );
                                 <?php } ?>
                             </script>
                         </div>
@@ -134,7 +422,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-info">
+                    <div class="card">
                         <div class="card-header">
                             <i class="fas fa-table mr-2"></i>
                             <h4>Daftar Kasus Coronavirus di Indonesia Berdasarkan Provinsi</h4>
@@ -186,7 +474,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-success">
+                    <div class="card">
                         <div class="card-header">
                             <i class="fas fa-hospital mr-2"></i>
                             <h4>Daftar Rumah Sakit Rujukan Coronavirus di Indonesia</h4>
