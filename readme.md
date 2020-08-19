@@ -24,6 +24,7 @@ berbasis <a href="https://codeigniter.com/">Codeigniter 3</a> dan template <a hr
 <a href="https://dekontaminasi.com/api/id/covid19/hospitals">Rumah sakit rujukan</a>
 
 
+
 #### Kontribusi
 Contributions, issues and pull requests di persilahkan, jika menemukan bug/masalah jangan ragu untuk laporkan di halaman issues.
 
