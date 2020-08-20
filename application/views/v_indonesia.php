@@ -420,7 +420,7 @@
                                             <th>Positif</th>
                                             <th>Sembuh</th>
                                             <th>Meninggal</th>
-                                            <th>Jumlah Dirawat</th>
+                                            <th>Dirawat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
