@@ -10,7 +10,7 @@ berbasis <a href="https://codeigniter.com/" target="_blank">Codeigniter 3</a> da
 
 - Download "WASPADA CORONA" atau clone di computer kamu.
 - Pindahkan file ke dalam folder htdocs, kemudian jalankan Xampp.
-- Buka browser lalu ketik/copy http://localhost/waspada_corona/ 
+- Buka browser lalu ketik/copy http://localhost//waspda-corona-master/ 
 - Pastikan komputer kamu terhubung internet untuk mengakses API.
 
 
