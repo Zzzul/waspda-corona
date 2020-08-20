@@ -1,35 +1,33 @@
 # WASPADA CORONA
 
-<img src="https://user-images.githubusercontent.com/62506582/90656054-737ae280-e26c-11ea-9171-5784223e25c4.png" alt="Screenshoot Waspada Corona" width="90%">
+<img src="https://user-images.githubusercontent.com/62506582/90748076-eb441e00-e2fb-11ea-9f3d-96e41762415e.png" alt="Screenshoot Waspada Corona" width="90%">
 
-Apa itu WASPADA CORONA
-Waspada Corona adalah sebuah web yang menampilkan informasi kasus Corona Virus di Indonesia dan seluruh dunia.
-berbasis <a href="https://codeigniter.com/">Codeigniter 3</a> dan template <a href="https://getstisla.com">STISLA</a>
+##### Apa itu WASPADA CORONA
+"WASPADA CORONA" adalah sebuah web yang menampilkan informasi perkembangan kasus Corona Virus / Covid19 di Indonesia dan seluruh dunia
+berbasis <a href="https://codeigniter.com/" target="_blank">Codeigniter 3</a> dan template <a href="https://getstisla.com" target="_blank">STISLA</a>
 
 ### Installasi
 
-- Download WASPADA CORONA atau clone di computer kalian.
+- Download "WASPADA CORONA" atau clone di computer kamu.
 - Pindahkan file ke dalam folder htdocs, kemudian jalankan Xampp.
-- Buka di browser lalu ketik/copy http://localhost/waspada_corona/ 
-- Pastikan komputer kalian terhubung internet untuk mengakses API.
+- Buka browser lalu ketik/copy http://localhost/waspada_corona/ 
+- Pastikan komputer kamu terhubung internet untuk mengakses API.
 
 
 #### Web API yang dipakai
-<a href="https://api.kawalcorona.com/">Global</a><br>
-<a href="https://api.kawalcorona.com/positif">Global total positif</a><br>
-<a href="https://api.kawalcorona.com/sembuh">Global total sembuh</a><br>
-<a href="https://api.kawalcorona.com/meninggal">Global total meninggal</a><br>
-<a href="https://data.covid19.go.id/public/api/update.json">Kumulatif & harian lokal</a><br>
-<a href="https://data.covid19.go.id/public/api/prov.json">Provinsi</a><br>
-<a href="https://dekontaminasi.com/api/id/covid19/hospitals">Rumah sakit rujukan</a>
-
-
+<a href="https://api.kawalcorona.com/" target="_blank">Global</a><br>
+<a href="https://api.kawalcorona.com/positif" target="_blank">Global total positif</a><br>
+<a href="https://api.kawalcorona.com/sembuh" target="_blank">Global total sembuh</a><br>
+<a href="https://api.kawalcorona.com/meninggal" target="_blank">Global total meninggal</a><br>
+<a href="https://data.covid19.go.id/public/api/update.json" target="_blank">Kumulatif & harian lokal</a><br>
+<a href="https://data.covid19.go.id/public/api/prov.json" target="_blank">Provinsi</a><br>
+<a href="https://dekontaminasi.com/api/id/covid19/hospitals" target="_blank">Rumah sakit rujukan</a>
 
 #### Kontribusi
 Contributions, issues and pull requests di persilahkan, jika menemukan bug/masalah jangan ragu untuk laporkan di halaman issues.
 
 #### Lisensi 
-<a href="https://github.com/Zzzul/waspda-corona/blob/master/license.txt">MIT License</a>
+<a href="https://github.com/Zzzul/waspda-corona/blob/master/license.txt" target="_blank">MIT License</a>
 
-##### Jangan lupa cuci tangan & taati protokol kesehatan yang berlaku  
-###### Semoga bisa membantu bagi kalian yang ingin membuat website mengenai informasi kasus CoronaVirus  😊
+##### Jangan lupa cuci tangan & patuhi protokol kesehatan yang berlaku  
+###### Semoga bisa bermanfaat 😊

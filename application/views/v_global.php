@@ -4,14 +4,6 @@
         <div class="section-header">
             <h1>Informasi Kasus Coronavirus di Seluruh Dunia</h1>
         </div>
-        <?php
-        // foreach ($global as $key => $value) {
-        //     echo $value['attributes']['Country_Region'];
-        //     echo " | ";
-        //     echo $value['attributes']['Lat'] . " " . $value['attributes']['Long_'];
-        // }
-        // die; 
-        ?>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -69,7 +61,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-primary">
+                    <div class="card">
                         <div class="card-header">
                             <i class="fas fa-globe-asia mr-2"></i>
                             <h4>Pemetaan Kasus Coronavirus di Seluruh Dunia</h4>
@@ -78,7 +70,6 @@
                             <div id="mapid" class="rounded" style="height: 500px;"></div>
                             <script>
                                 var mymap = L.map('mapid').setView([27.3846827, 70.4278625], 3);
-
 
                                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                                     maxZoom: 18,
@@ -128,7 +119,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-info">
+                    <div class="card">
                         <div class="card-header">
                             <i class="fas fa-table mr-2"></i>
                             <h4>Daftar Kasus Coronavirus di Seluruh Dunia</h4>
@@ -160,13 +151,18 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <!-- end of table-responsive -->
                         </div>
                         <!-- end of card-body -->
                     </div>
+                    <!-- end of card -->
                 </div>
+                <!-- end of col -->
             </div>
             <!-- end of row -->
         </div>
         <!-- end of section-body -->
     </section>
+    <!-- end of section -->
 </div>
+<!-- end of main-content -->

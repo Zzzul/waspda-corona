@@ -6,15 +6,6 @@
         </div>
         <div class="section-body">
             <div class="row">
-                <?php
-                // foreach ($indo['update']['harian'] as $key => $value) {
-                //     echo date('d m Y', strtotime($value['key_as_string']));
-                //     echo " | ";
-                //     echo $value['jumlah_meninggal']['value'];
-                //     echo "<br>";
-                // };
-                // die;
-                ?>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-warning">
@@ -88,7 +79,7 @@
                     <div class="card">
                         <div class="card-header">
                             <i class="far fa-calendar-alt mr-2"></i>
-                            <h4>Informasi Kasus Coronavirus di Indonesia Hari Ini</h4>
+                            <h4>Informasi Kasus Coronavirus di Indonesia Perhari</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -122,7 +113,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <h6 class="mb-0 pb-0">Update Terakhir</h6>
-                                    <p class="mb-1">
+                                    <p class="mb-1" data-toggle="tooltip" title="Data akan diupdate paling lambat pukul 16:00 setiap harinya.">
                                         <?php echo date('d-m-Y H:i:s', strtotime($indo['update']['penambahan']['created'])); ?>
                                     </p>
                                 </div>
@@ -139,26 +130,13 @@
                     <div class="card">
                         <div class="card-header">
                             <i class="fas fa-chart-line mr-2"></i>
-                            <h4>Grafik Kasus Coronavirus di Indonesia</h4>
+                            <h4>Grafik Perkembangan Kasus Coronavirus di Indonesia</h4>
                             <form class="card-header-form">
                                 <select id="selectChart" class="form-control">
                                     <option value="harian">Harian</option>
                                     <option value="kumulatif">Kumulatif</option>
                                 </select>
                             </form>
-                            <!-- <div class="row">
-                                <div class="col-lg-10 col-md-10">
-                                    <i class="fas fa-chart-line"></i>
-                                    <h4>Grafik Kasus Coronavirus di Indonesia</h4>
-                                </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <select id="selectChart" class="form-control float-right">
-                                        <option value="harian">Harian</option>
-                                        <option value="kumulatif">Kumulatif</option>
-                                    </select>
-                                </div>
-                            </div> -->
-                            <!-- emd of row -->
                         </div>
                         <canvas id="chartHarian" height="400" class="p-3"></canvas>
                         <canvas id="chartKumulatif" height="400" class="p-3"></canvas>
@@ -360,6 +338,7 @@
                             });
                         </script>
                     </div>
+                    <!-- end of card -->
                 </div>
                 <!-- end of col -->
             </div>
@@ -416,9 +395,13 @@
                                 <?php } ?>
                             </script>
                         </div>
+                        <!-- end of card-body -->
                     </div>
+                    <!-- end of card -->
                 </div>
+                <!-- end of col -->
             </div>
+            <!-- end of row -->
 
             <div class="row">
                 <div class="col-md-12">
@@ -465,10 +448,13 @@
                                     </tfoot>
                                 </table>
                             </div>
+                            <!-- end of table-responsive -->
                         </div>
                         <!-- end of card-body -->
                     </div>
+                    <!-- end of card -->
                 </div>
+                <!-- end of col -->
             </div>
             <!-- end of row -->
 
@@ -529,5 +515,6 @@
         </div>
         <!-- end of section-body -->
     </section>
+    <!-- end of section -->
 </div>
 <!-- end of main-content -->
